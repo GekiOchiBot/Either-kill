@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>StudyCommands-Java</title>
+</head>
+<body>
+    <header class="header">
+        <p onclick="Back()" class="backButton">Back</p>
+        <h1>StudyCommands</h1><br>
+        <div class="Fbox" align="center">
+            <h2>killコマンドについて</h2><br>
+        </div>
+    </header>
+    <div class="box">
+            <div class="switch-active" onclick="SwitchE(1)" id="1">①</div>
+
+                <div class="item-active" id="1.">/killはモブを殺すコマンドです。<br>[/kill セレクター] とすることでセレクターを殺すことができます</div>
+
+            <div class="switch" onclick="SwitchE(2)" id="2">②</div>
+
+                <div class="item" id="2.">/kill @e[type=zombie] とすると、ワールド内のゾンビがすべて殺されます。</div>
+
+            <div class="switch" onclick="SwitchE(3)" id="3">テスト</div>
+
+                <div class="item" id="3."><br>ワールド内の全スケルトンを殺すコマンドを打ってください<br>
+                    <textarea class="Question" id="q1"></textarea>
+
+                    <br>ワールドのモブを全て殺すコマンドを打ってください<br>
+                    <textarea class="Question" id="q2"></textarea>
+                    <div class="switch" onclick="Enter(2)" id="q2">確認</div>
+                </div>
+
+            </div>
+    <script>
+
+        const switcherCount = 3;
+
+        let Answers = [
+            [
+            "/kill @e[type=skeleton]",
+            "kill @e[type=skeleton]"
+            ],
+            [
+            "/kill @e",
+            "kill @e"
+            ]
+        ]
+
+        function Back(){
+            window.location.href = "https://gekiochibot.github.io/Java-Home/"
+        }
+
+        function SwitchE(id){
+            for (let i = 1; i <= switcherCount; i++) {
+                document.getElementById(i).className = "switch"
+                document.getElementById(i + ".").className = "item"
+            }
+            var D = document.getElementById(id)
+            var I = document.getElementById(id + ".")
+
+            D.className = D.className + "-active"
+            I.className = I.className + "-active"
+        }
+
+        function Enter(qNum){
+            var CorrectCounts = 0;
+            const QCounts = qNum;
+            for (let i = 0; i < QCounts; i++) {
+            const Q = document.getElementById("q" + (i + 1))
+
+            if(Answers[i].indexOf(Q.value) != -1){
+                CorrectCounts += 1;
+            }else{
+            }   
+            console.log(CorrectCounts);
+            }
+            if (CorrectCounts == 0) {
+                window.alert("全問不正解です..")
+                return;
+            }else if(CorrectCounts > 0 && CorrectCounts < QCounts){
+                window.alert(CorrectCounts + "/" + QCounts + " 正解です")
+                return;
+            }else if(CorrectCounts == QCounts){
+                window.alert("全問正解です!")
+                return;
+            }
+        }
+    </script>
+</body>
