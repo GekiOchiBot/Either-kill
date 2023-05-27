@@ -52,12 +52,13 @@
         ]
         
         window.onload = function(){
-            const rng = 0;
             if (document.getElementsByTagName("random")){
 
                 if (document.getElementById("entity")){
 
-                    const Erng = Math.floor( Math.random(EntitiesJ[0].length) * 10) ;
+                    const Erng = Math.floor( Math.random() * EntitiesJ[0].length) ;
+
+
 
                     Answers[0][0] = Answers[0][0] + EntitiesE[0][Erng] + "]" ;
                     Answers[0][1] = Answers[0][1] + EntitiesE[0][Erng] + "]" ;
