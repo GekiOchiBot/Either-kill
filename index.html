@@ -36,7 +36,9 @@
             <script src="entities.js"></script>
     <script>
 
-        const switcherCount = 3;
+        let switcherCount = 3;
+
+        let BJ = "";
 
         
 
@@ -71,7 +73,11 @@
         }
 
         function Back(){
-            window.location.href = "https://gekiochibot.github.io/Java-Home/"
+            if(window.location.href = "https://gekiochibot.github.io/Either-kill/#Bedrock"){
+                window.location.href = "https://gekiochibot.github.io/Bedrock-Home/"
+            }else{
+                window.location.href = "https://gekiochibot.github.io/Java-Home/"
+            }
         }
 
         function SwitchE(id){
